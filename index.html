@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">𝐀𝐍𝐈𝐒𝐇</a>
+
+        <nav class="navbar">
+            <a href="#home" class="active"> Home</a>
+            <a href="#services" >Services</a>
+            <a href="#skills" >Skills</a>
+            <a href="#contact" >Contact</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="Profile.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>ᴀɴɪꜱʜ</span></h1>
+             <div id="text-container">
+        <span id="dynamic-text"></span>
+        <span class="blinking-cursor"></span>
+    </div>
+            <script>
+                const texts = ["I'm Web Developer!", "I'm Developer !", "I'm Software Developer!", "I'm Web Designer!", "I'm Script Writter!","I'm Youtuber!",];
+        let index = 0; // Index of the current text
+        let charIndex = 0; // Index of the current character
+        let isDeleting = false; // Whether we are deleting characters
+        const typingSpeed = 100; // Speed of typing
+        const deletingSpeed = 50; // Speed of deleting
+        const delayBetweenTexts = 2000; // Delay before starting the next text
+
+        function typeText() {
+            const textElement = document.getElementById("dynamic-text");
+            const currentText = texts[index];
+
+            if (isDeleting) {
+                // Erase the text character by character
+                textElement.textContent = currentText.substring(0, charIndex--);
+            } else {
+                // Type the text character by character
+                textElement.textContent = currentText.substring(0, charIndex++);
+            }
+
+            // Determine the next action
+            if (!isDeleting && charIndex === currentText.length) {
+                // Wait before deleting
+                isDeleting = true;
+                setTimeout(typeText, delayBetweenTexts);
+            } else if (isDeleting && charIndex < 0) {
+                // Move to the next text after deletion
+                isDeleting = false;
+                index = (index + 1) % texts.length; // Loop to the next text
+                setTimeout(typeText, typingSpeed);
+            } else {
+                // Continue typing or deleting
+                setTimeout(typeText, isDeleting ? deletingSpeed : typingSpeed);
+            }
+        }
+
+        // Start the typing effect
+        typeText();
+            </script>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#contact" class="btn">Hire me</a>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <h2 class="heading">Services</h2>
+        <div class="services-container">
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>Graphic Designer</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ipsa amet unde iure eveniet distinctio explicabo officiis?</p>
+            </div>
+        </div> 
+
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>Frontend Development</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste aliquam debitis vero!</p>
+            </div>
+        </div>
+
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>UI / UX Design</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla rerum amet ratione dicta saepe laudantium quaerat esse, quia odit doloremque.</p>
+            </div>
+        </div>
+
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>Content Manager</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, perspiciatis. Animi dolore quam repudiandae dolorem laborum ea.</p>
+            </div>
+        </div>
+
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>Software Tester</h4>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quaerat repellat provident mollitia nemo et deleniti dignissimos laboriosam obcaecati sint?</p>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-info">
+                <h4>ISO Developer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum quaerat repellat provident mollitia nemo et deleniti dignissimos laboriosam obcaecati sint?</p>
+            </div>
+        </div>
+
+
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">Skills</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <div class="bar">
+                    <div class="info">
+                        <img src="figma.webp" class="photo">
+                        <span>Figma</span>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="info">
+                        <img src="pho.png" class="photo">
+                        <span>Photoshop</span>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="info">
+                        <img src="webflow.png" class="photo">
+                        <span>Webflow</span>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="info">
+                        <img src="Angular.png" class="photo">
+                        <span>Angular</span>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="info">
+                        <img src="py.jfif" class="photo">
+                        <span>Python</span>
+                    </div>
+                </div>
+
+              
+
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="">
+            <div class="input-box">
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type=" Phone number"  placeholder="Phone Number" required>
+            <input type="text"  placeholder="Subject" required>
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+
+        </form>
+    </section>
+    <footer class="footer">
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright"> @ 𝐀𝐍𝐈𝐒𝐇| All Right Reserved</p>
+    </footer>
+</body>
+</html>
